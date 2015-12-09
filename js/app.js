@@ -16,13 +16,18 @@ $(document).ready(function(){
   	});
 
   	/*--- Hide information modal box ---*/
+
   	$("a.close").click(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+    /*--- Generates a random number ---*/
+
     function randNum() {
     return Math.floor(Math.random() * (1-100 + 1)) + 1;
     };
+
+    /*--- New Game button starts a new game ---*/
 
   	function newGame() {
      
@@ -36,12 +41,24 @@ $(document).ready(function(){
      $('#guessList').innerHTML(guessList)
      $('#feedback').innerHTML(guessItemStart + guessItemEnd)
 
-    });
+    };
     
-    function giveFeedback() {
-      
+    /*--- Provides feedback depending on users guess ---*/
 
-      return "cold"
+    function giveFeedback() {
+      if (guess + num => 50) {
+        return "colder"
+      };
+
+      else if (guess + num <= 50) {
+        return "cold"
+      };
+      else if (guess + num <= 25) {
+        return "warm"
+      };
+      else if (guess + num <= 10) {
+        return "warmer"
+      };
     }
 
     newGame();
